@@ -6,6 +6,7 @@ let g:polyglot_disabled = ['go']
 call plug#begin()
     Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
     Plug 'sheerun/vim-polyglot'
+    Plug 'NLKNguyen/papercolor-theme'
 call plug#end()
 
 """""""""""""
@@ -38,7 +39,9 @@ set ignorecase     " Ignore case when searching
 set smartcase      " SmartCase when searching
 set belloff=all    " Disable Bell
 set colorcolumn=80 " Vertical Ruler
-
+set laststatus=2
+set background=dark
+colorscheme PaperColor
 
 """""""""""""
 "   Keys    "
