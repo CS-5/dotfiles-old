@@ -1,6 +1,16 @@
 """""""""""""
+"  Plugins  "
+"""""""""""""
+let g:polyglot_disabled = ['go']
+
+call plug#begin()
+    Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+    Plug 'sheerun/vim-polyglot'
+call plug#end()
+
+"""""""""""""
 "    Go     "
-"    """""""""""""
+"""""""""""""
 let g:go_highlight_function_calls = 1
 let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
@@ -13,7 +23,7 @@ let g:tagbar_width = 66
 
 """""""""""""
 "   Misc    "
-"   """""""""""""
+"""""""""""""
 filetype plugin indent on
 syntax on          " Syntax highlighting
 set number         " Line numbering
@@ -32,7 +42,7 @@ set colorcolumn=80 " Vertical Ruler
 
 """""""""""""
 "   Keys    "
-"   """""""""""""
+"""""""""""""
 let mapleader="\<M>"
 
   " :GoTest
