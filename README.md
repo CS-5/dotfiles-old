@@ -11,4 +11,4 @@ This repository is structured to work with [GNU Stow](https://www.gnu.org/softwa
 1. Clone the repo: `git clone https://github.com/CS-5/.dotfiles ~/.dotfiles`
 2. Enter the directory, decide what files you want to use: `cd ~/.dotfiles`
 3. Use the `stow` command for the appropriate files: `stow nvim`, `stow tmux`
-~~4. Give me reccomendations for how to better use and configure vim and tmux!~~
+4. _(Optional) Give me some vim and tmux pointers!_
