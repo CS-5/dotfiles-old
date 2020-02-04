@@ -5,8 +5,8 @@ let g:polyglot_disabled = ['go']
 
 call plug#begin()
     Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-    Plug 'sheerun/vim-polyglot'
     Plug 'NLKNguyen/papercolor-theme'
+    Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
 call plug#end()
 
 """""""""""""
