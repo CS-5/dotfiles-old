@@ -17,9 +17,6 @@ set -g theme_use_abbreviated_branch_name no
 
 # Setup Enviorment
 
-## Misc
-set -x ENHANCD_FILTER fzy
-
 ## Go
 set -x GOROOT /usr/local/go
 set -x GOPATH $HOME/programming/go
