@@ -1,22 +1,4 @@
-### OLD THEME CONFIG ###
-# Setup Theme
-# set -g theme_powerline_fonts yes
-# set -g theme_nerd_fonts yes
-# set -g theme_color_scheme solarized-dark
-
-# set -g theme_title_display_user yes
-# set -g theme_title_display_path yes
-
-# set -g theme_display_nvm yes
-# set -g theme_display_user yes
-# set -g theme_display_sudo_user yes
-# set -g theme_show_exit_status yes
-# set -g theme_newline_cursor yes
-
-# set -g theme_use_abbreviated_branch_name no
-
-
-### NEW THEME CONFIG ###
+### THEME CONFIG ###
 
 # Fish syntax highlighting
 set -g fish_color_autosuggestion '555'  'brblack'
@@ -67,3 +49,6 @@ status --is-interactive; and source (jump shell fish | psub)
 
 # Init Starfish
 starship init fish | source
+
+# Clear greeting
+set fish_greeting
