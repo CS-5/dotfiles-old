@@ -32,17 +32,18 @@ set -g man_underline -u 93a1a1
 # Setup Enviorment
 
 ## Go
-set -x GOROOT /usr/local/go
-set -x GOPATH $HOME/programming/go
+set GOROOT /usr/local/go
+set GOPATH $HOME/programming/go
 
-## Path
-set -x PATH $GOPATH/bin:$GOROOT/bin:/snap/bin:$PATH
+## Rust
+set CARGOPATH $HOME/.cargo
 
 # Aliases
 alias g='git'
 alias v='vim'
 alias reload='omf reload'
 alias python='python3'
+alias what='apropos'
 
 # Init Jump
 status --is-interactive; and source (jump shell fish | psub)
