@@ -6,7 +6,8 @@ end
 ##### Setup Plugins #####
 
 fundle plugin joseluisq/gitnow
-fundle plugin jorgebucaran/nvm.fish
+fundle plugin FabioAntunes/fish-nvm
+fundle plugin edc/bass
 
 fundle init
 
