@@ -7,11 +7,12 @@ end
 
 fundle plugin joseluisq/gitnow
 fundle plugin jorgebucaran/nvm.fish
-fundle plugin jethrokuan/z
-fundle plugin gazorby/fish-abbreviation-tips
-fundle plugin sharkdp/bat
 
 fundle init
+
+##### Aliases #####
+alias cat=batcat
+alias g=git
 
 ##### Setup Enviorment #####
 
