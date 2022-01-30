@@ -23,6 +23,14 @@ SETUVAR _fish_abbr_gp:git\x20push
 SETUVAR _fish_abbr_gpl:git\x20pull
 SETUVAR _fish_abbr_gr:git\x20rebase\x20\x2di\x20HEAD\x7e15
 SETUVAR _fish_abbr_gs:git\x20status\x20\x2dsb
+SETUVAR _fish_abbr_n:npm
+SETUVAR _fish_abbr_ni:npm\x20install
+SETUVAR _fish_abbr_nr:npm\x20remove
+SETUVAR _fish_abbr_nrb:npm\x20run\x20build
+SETUVAR _fish_abbr_nrd:npm\x20run\x20dev
+SETUVAR _fish_abbr_nrs:npm\x20run\x20start
+SETUVAR _fish_abbr_nrw:npm\x20run\x20watch
+SETUVAR _fish_abbr_nv:npm\x20version
 SETUVAR fish_color_autosuggestion:555\x1ebrblack
 SETUVAR fish_color_cancel:\x2dr
 SETUVAR fish_color_command:005fd7
@@ -50,4 +58,4 @@ SETUVAR fish_pager_color_completion:\x1d
 SETUVAR fish_pager_color_description:B3A06D\x1eyellow
 SETUVAR fish_pager_color_prefix:normal\x1e\x2d\x2dbold\x1e\x2d\x2dunderline
 SETUVAR fish_pager_color_progress:brwhite\x1e\x2d\x2dbackground\x3dcyan
-SETUVAR fish_user_paths:/home/carson/\x2envm/versions/node/v16\x2e10\x2e0\x1e/home/carson/\x2elocal/bin
+SETUVAR fish_user_paths:/usr/local/go/bin\x1e/home/carson/\x2envm/versions/node/v16\x2e10\x2e0\x1e/home/carson/\x2elocal/bin

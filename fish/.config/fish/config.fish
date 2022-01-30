@@ -44,7 +44,8 @@ fundle init
 
 # Go
 set GOROOT /usr/local/go
-set GOPATH $HOME/programming/go
+set GOPATH $HOME/dev/go
+fish_add_path $GOROOT/bin
 
 # Rust
 set CARGOPATH $HOME/.cargo
