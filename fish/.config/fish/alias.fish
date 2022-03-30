@@ -2,7 +2,6 @@ alias vim=nvim
 alias ls=lsd
 alias cat=batcat
 alias dev='devcontainer open'
-alias code='code .'
 
 # git
 abbr -a g   git 
