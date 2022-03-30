@@ -49,3 +49,4 @@ fish_add_path $GOROOT/bin
 
 # Rust
 set CARGOPATH $HOME/.cargo
+fish_add_path $CARGOPATH/bin
