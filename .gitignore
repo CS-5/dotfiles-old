@@ -1,2 +1,3 @@
 **/fundle
 fish/.config/fish/conf.d/*
+fish_variables
