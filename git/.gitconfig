@@ -1,3 +1,5 @@
 [user]
 email = me@carsonseese.com
 name = CS-5
+[credential]
+	helper = /mnt/c/Program\\ Files/Git/mingw64/libexec/git-core/git-credential-manager-core.exe
