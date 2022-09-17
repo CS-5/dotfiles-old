@@ -35,8 +35,8 @@ set -g fish_color_valid_path --underline
 ##### Setup Plugins #####
 
 fundle plugin joseluisq/gitnow
-fundle plugin FabioAntunes/fish-nvm
 fundle plugin edc/bass
+fundle plugin PatrickF1/fzf.fish
 
 fundle init
 
@@ -50,3 +50,8 @@ fish_add_path $GOROOT/bin
 # Rust
 set CARGOPATH $HOME/.cargo
 fish_add_path $CARGOPATH/bin
+
+# pnpm
+set -gx PNPM_HOME "/home/carson/.local/share/pnpm"
+set -gx PATH "$PNPM_HOME" $PATH
+# pnpm end
