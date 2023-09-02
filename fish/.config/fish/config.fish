@@ -39,19 +39,3 @@ fundle plugin edc/bass
 fundle plugin PatrickF1/fzf.fish
 
 fundle init
-
-##### Setup Enviorment #####
-
-# Go
-set GOROOT /usr/local/go
-set GOPATH $HOME/dev/go
-fish_add_path $GOROOT/bin
-
-# Rust
-set CARGOPATH $HOME/.cargo
-fish_add_path $CARGOPATH/bin
-
-# pnpm
-set -gx PNPM_HOME "/home/carson/.local/share/pnpm"
-set -gx PATH "$PNPM_HOME" $PATH
-# pnpm end
