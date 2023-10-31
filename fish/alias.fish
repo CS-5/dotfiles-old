@@ -1,6 +1,4 @@
-alias ls=lsd
-
-# git
+# Git
 abbr -a g   git 
 abbr -a gs  git status -sb
 abbr -a ga  git add
@@ -20,21 +18,22 @@ abbr -a gfc git findcommit
 abbr -a gfm git findmessage
 abbr -a gco git checkout
 
-# node
-abbr -a n npm
-abbr -a ni npm install
-abbr -a nr npm remove
+# Node/NPM
+abbr -a n   npm
+abbr -a ni  npm install
+abbr -a nr  npm remove
 abbr -a nrb npm run build
 abbr -a nrd npm run dev
 abbr -a nrw npm run watch
 abbr -a nrs npm run start
-abbr -a nv npm version
+abbr -a nv  npm version
 
 # ls
 alias l='ls -l'
 alias la='ls -a'
 alias lla='ls -la'
 alias lt='ls --tree'
+alias ls=lsd
 
-# misc
+# Misc
 alias reload='exec fish'
