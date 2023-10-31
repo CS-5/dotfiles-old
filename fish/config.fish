@@ -13,6 +13,9 @@ if status is-interactive
     starship init fish | source
 end
 
+##### Add paths #####
+fish_add_path ~/.local/bin
+
 ##### Syntax Highlighting #####
 set -g fish_color_autosuggestion '555'  'brblack'
 set -g fish_color_cancel -r
