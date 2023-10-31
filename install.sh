@@ -21,8 +21,8 @@ if [[ $platform == "Darwin" ]]; then
 elif [[ $platform == "Linux" ]]; then
   DEBIAN_FRONTEND=noninteractive
 
-  apt update -y
-  apt install -y fish fzf asciinema fd-find lsd httpie
+  sudo apt update -y
+  sudo apt install -y fish fzf asciinema fd-find lsd httpie
 
   ln -s $(which fdfind) ~/.local/bin/fd
 fi
@@ -31,8 +31,11 @@ curl -fsSL https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh 
 
 ### Link Configs
 
-ln -s $(pwd)/git/.gitconfig ~/.gitconfig
-ln -s $(pwd)/git ~/.config/git
+if [[ -z "$REMOTE_CONTAINERS" ]]; then
+  ln -s $(pwd)/git/.gitconfig ~/.gitconfig
+  ln -s $(pwd)/git ~/.config/git
+fi
+
 ln -s $(pwd)/fish ~/.config/fish
 ln -s $(pwd)/starship/starship.toml ~/.config/starship.toml
 
