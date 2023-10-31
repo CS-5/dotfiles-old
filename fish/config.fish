@@ -1,17 +1,5 @@
-
-##### Fundle Init #####
-if not functions -q fundle
-  eval (curl -sfL https://git.io/fundle-install)
-end
-
 ##### Aliases #####
 source ~/.config/fish/alias.fish
-
-##### Init Jump and Starfish #####
-if status is-interactive
-    source (jump shell fish | psub)	
-    starship init fish | source
-end
 
 ##### Add paths #####
 fish_add_path ~/.local/bin
@@ -39,13 +27,16 @@ set -g fish_color_selection 'white'  '--bold'  '--background=brblack'
 set -g fish_color_user brgreen
 set -g fish_color_valid_path --underline
 
-##### Setup Tools #####
-zoxide init fish | source
-
 ##### Setup Plugins #####
-fundle plugin joseluisq/gitnow
-fundle plugin edc/bass
-fundle plugin PatrickF1/fzf.fish
-fundle plugin jorgebucaran/autopair.fish
+fundle plugin 'joseluisq/gitnow'
+fundle plugin 'edc/bass'
+fundle plugin 'PatrickF1/fzf.fish'
+fundle plugin 'jorgebucaran/autopair.fish'
 
 fundle init
+
+##### Init Tools #####
+if status is-interactive
+    starship init fish | source
+    zoxide init fish | source
+end

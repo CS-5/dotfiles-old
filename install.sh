@@ -2,6 +2,11 @@
 
 set -e
 
+### Setup
+
+mkdir -p ~/.config
+mkdir -p ~/.local/bin
+
 ### Tools
 
 # Platform-specific
@@ -18,30 +23,31 @@ elif [[ $platform == "Linux" ]]; then
 
   apt update -y
   apt install -y fish fzf asciinema fd-find lsd httpie
+
+  ln -s $(which fdfind) ~/.local/bin/fd
 fi
 
 curl -fsSL https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | bash
 
 ### Link Configs
 
-mkdir -p ~/.config
-ln -s $(pwd)/.gitconfig ~/.gitconfig
+ln -s $(pwd)/git/.gitconfig ~/.gitconfig
 ln -s $(pwd)/git ~/.config/git
 ln -s $(pwd)/fish ~/.config/fish
-ln -s $(pwd)/starship.toml ~/.config/starship.toml
+ln -s $(pwd)/starship/starship.toml ~/.config/starship.toml
 
 ### Shell
 
+# Download Fundle
+curl -fsSLo ~/.config/fish/functions/fundle.fish https://git.io/fundle
+
 # Install/setup Starship
-curl -fsSL https://starship.rs/install.sh | sh -y
-
-# Install Fundle
-curl -fsSL https://git.io/fundle-install | fish
-
-fish -c 'reload'
+curl -fsSL https://starship.rs/install.sh | sh -s -- -y
 
 # Install shell dependencies with Fundle
 fish -c 'fundle install'
 
 # Change shell to fish
-chsh -fsSL /usr/bin/fish
+chsh -s /usr/bin/fish
+
+fish -c 'exec fish'
