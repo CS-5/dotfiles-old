@@ -1,56 +1,83 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
-set -e
+set -ue
+
+. functions.sh
 
 ### Setup
 
 mkdir -p ~/.config
 mkdir -p ~/.local/bin
 
+if sudo --validate; then
+  while true; do
+    sudo --non-interactive true
+    sleep 60
+    kill -0 "$$" || exit
+  done 2>/dev/null &
+  substep_info "Sudo password saved. Continuing with script."
+else
+  substep_error "Incorrect sudo password. Exiting script."
+  exit 1
+fi
+
 ### Tools
 
-# Platform-specific
 platform="$(uname -s)"
+
+info "Platform $platform"
+
 if [[ $platform == "Darwin" ]]; then
-  if [[ -x "$(command -v brew)" ]]; then
-    NONINTERACTIVE=1
-    curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh | bash
+  if ! $(which brew); then
+    substep_info "Homebrew not found. Installing Homebrew..."
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    if ! $(which brew); then
+      substep_error "Error installing Homebrew. Exiting script."
+      exit 1
+    fi
+    success "Homebrew installation complete."
+  else
+    substep_success "Homebrew already installed. Skipping installation."
   fi
 
+  substep_info "Installing Brew packages"
   brew install fish fzf gping asciinema fd lsd httpie
+  substep_success "Brew packages installed"
+
 elif [[ $platform == "Linux" ]]; then
   DEBIAN_FRONTEND=noninteractive
 
+  substep_info "Installing APT packages"
   sudo apt update -y
   sudo apt install -y fish fzf asciinema fd-find lsd httpie
 
-  ln -s $(which fdfind) ~/.local/bin/fd
+  symlink $(which fdfind) ~/.local/bin/fd
+  substep_success "APT packages installed"
 fi
-
-curl -fsSL https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | bash
 
 ### Link Configs
 
-if [[ -z "$REMOTE_CONTAINERS" ]]; then
-  ln -s $(pwd)/git/.gitconfig ~/.gitconfig
-  ln -s $(pwd)/git ~/.config/git
-fi
-
-ln -s $(pwd)/fish ~/.config/fish
-ln -s $(pwd)/starship/starship.toml ~/.config/starship.toml
+substep_info "Linking configs"
+symlink $(pwd)/git/.gitconfig ~/.gitconfig
+symlink $(pwd)/git ~/.config/git
+symlink $(pwd)/fish ~/.config/fish
+symlink $(pwd)/starship/starship.toml ~/.config/starship.toml
 
 ### Shell
 
 # Download Fundle
+substep_info "Installing Fundle"
 curl -fsSLo ~/.config/fish/functions/fundle.fish https://git.io/fundle
-
-# Install/setup Starship
-curl -fsSL https://starship.rs/install.sh | sh -s -- -y
-
-# Install shell dependencies with Fundle
 fish -c 'fundle install'
 
-# Change shell to fish
-chsh -s /usr/bin/fish
+# Install/setup Starship
+substep_info "Installing Starship"
+curl -fsSL https://starship.rs/install.sh | sh -s -- -y
 
-fish -c 'exec fish'
+# Add fish to list of shells
+substep_info "Adding Fish to available shells..."
+sudo sh -c "echo $(which fish) >> /etc/shells"
+# Set fish as default
+sudo chsh -s $(which fish) $(whoami)
+
+success "Dotfiles done!"

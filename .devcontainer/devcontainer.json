@@ -1,0 +1,5 @@
+{
+  "name": "Dotfiles Test",
+  "image": "mcr.microsoft.com/devcontainers/base:bookworm",
+  "postCreateCommand": "./install.sh"
+}

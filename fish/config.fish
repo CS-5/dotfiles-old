@@ -38,5 +38,4 @@ fundle init
 ##### Init Tools #####
 if status is-interactive
     starship init fish | source
-    zoxide init fish | source
 end
