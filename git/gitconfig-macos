@@ -1,8 +1,0 @@
-[credential]
-	helper = osxkeychain
-
-[user]
-  signingkey = /Users/carson/.ssh/id_ed25519.pub
-
-[commit]
-  gpgsign = true
